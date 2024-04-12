@@ -1,6 +1,8 @@
 from locators import BurgerLocators
-import time
+import settings
 from data import BurgerTestData
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class TestEnterAccountAsUser:
@@ -14,6 +16,6 @@ class TestEnterAccountAsUser:
 
         personal_account_enter = driver.find_element(*BurgerLocators.BUTTON_ACCOUNT)
         personal_account_enter.click()
-        time.sleep(1)
+        WebDriverWait(driver, 3).until(expected_conditions.url_to_be(settings.URL + 'account/profile'))
         title_profile = driver.find_element(*BurgerLocators.TITLE_PROFILE)
         assert title_profile.is_displayed() and title_profile.text == 'Профиль'

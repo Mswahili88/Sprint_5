@@ -1,8 +1,8 @@
 from locators import BurgerLocators
-import time
 from data import BurgerTestData
 import settings
-
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 class TestSuccessfulLogIn:
     def test_successful_log_in_account_button(self, driver):
@@ -12,7 +12,7 @@ class TestSuccessfulLogIn:
         driver.find_element(*BurgerLocators.INPUT_EMAIL).send_keys(*BurgerTestData.MAIL)
         driver.find_element(*BurgerLocators.INPUT_PASSWORD).send_keys(*BurgerTestData.PASSWORD)
         driver.find_element(*BurgerLocators.BUTTON_ENTER).click()
-        time.sleep(1)
+        WebDriverWait(driver, 3).until(expected_conditions.url_to_be(settings.URL))
         form_an_order = driver.find_element(*BurgerLocators.FORM_AN_ORDER)
         assert form_an_order.is_displayed() and form_an_order.text == 'Оформить заказ'
 
@@ -23,7 +23,7 @@ class TestSuccessfulLogIn:
         driver.find_element(*BurgerLocators.INPUT_EMAIL).send_keys(*BurgerTestData.MAIL)
         driver.find_element(*BurgerLocators.INPUT_PASSWORD).send_keys(*BurgerTestData.PASSWORD)
         driver.find_element(*BurgerLocators.BUTTON_ENTER).click()
-        time.sleep(1)
+        WebDriverWait(driver, 3).until(expected_conditions.url_to_be(settings.URL))
         form_an_order = driver.find_element(*BurgerLocators.FORM_AN_ORDER)
         assert form_an_order.is_displayed() and form_an_order.text == 'Оформить заказ'
 
@@ -38,7 +38,7 @@ class TestSuccessfulLogIn:
         driver.find_element(*BurgerLocators.INPUT_EMAIL).send_keys(*BurgerTestData.MAIL)
         driver.find_element(*BurgerLocators.INPUT_PASSWORD).send_keys(*BurgerTestData.PASSWORD)
         driver.find_element(*BurgerLocators.BUTTON_ENTER).click()
-        time.sleep(1)
+        WebDriverWait(driver, 3).until(expected_conditions.url_to_be(settings.URL))
         form_an_order = driver.find_element(*BurgerLocators.FORM_AN_ORDER)
         assert form_an_order.is_displayed() and form_an_order.text == 'Оформить заказ'
 
@@ -53,6 +53,6 @@ class TestSuccessfulLogIn:
         driver.find_element(*BurgerLocators.INPUT_EMAIL).send_keys(*BurgerTestData.MAIL)
         driver.find_element(*BurgerLocators.INPUT_PASSWORD).send_keys(*BurgerTestData.PASSWORD)
         driver.find_element(*BurgerLocators.BUTTON_ENTER).click()
-        time.sleep(1)
+        WebDriverWait(driver, 3).until(expected_conditions.url_to_be(settings.URL))
         form_an_order = driver.find_element(*BurgerLocators.FORM_AN_ORDER)
         assert form_an_order.is_displayed() and form_an_order.text == 'Оформить заказ'

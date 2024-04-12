@@ -1,7 +1,8 @@
 from locators import BurgerLocators
-import time
 from data import BurgerTestData
-
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+import settings
 
 class TestExitAccount:
     def test_exit_account(self, driver):
@@ -14,9 +15,9 @@ class TestExitAccount:
 
         personal_account_enter = driver.find_element(*BurgerLocators.BUTTON_ACCOUNT)
         personal_account_enter.click()
-        time.sleep(1)
+        WebDriverWait(driver, 3).until(expected_conditions.url_to_be(settings.URL + 'account/profile'))
         button_exit = driver.find_element(*BurgerLocators.BUTTON_EXIT)
         button_exit.click()
-        time.sleep(1)
+        WebDriverWait(driver, 3).until(expected_conditions.url_to_be(settings.URL + 'login'))
         login_title = driver.find_element(*BurgerLocators.TITLE_ENTER)
         assert login_title.is_displayed() and login_title.text == 'Вход'

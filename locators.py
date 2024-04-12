@@ -1,15 +1,15 @@
 from selenium.webdriver.common.by import By
 
 class BurgerLocators:
-    BUTTON_ACCOUNT = (By.XPATH, "//a[@class='AppHeader_header__link__3D_hX' and @href='/account']")
+    BUTTON_ACCOUNT = (By.XPATH, "//*[contains(text(), 'Личный Кабинет')]")
     BUTTON_ENTER_ACCOUNT = (By.XPATH, "//button[text()='Войти в аккаунт']")
-    BUTTON_SMALL_ENTER = (By.XPATH, "//a[@class='Auth_link__1fOlj' and @href='/login' and text()='Войти']")
-    BUTTON_RESET_PASSWORD = (By.XPATH, "//a[@class='Auth_link__1fOlj' and @href='/forgot-password' and text()='Восстановить пароль']")
+    BUTTON_SMALL_ENTER = (By.XPATH, "//*[contains(@class, 'Auth_link__1fOlj')]")
+    BUTTON_RESET_PASSWORD = (By.XPATH, "//*[contains(@href,'/forgot-password')]")
     BUTTON_ENTER = (By.XPATH, "//button[text()='Войти']")
-    BUTTON_REGISTRATE = (By.XPATH, "//a[@class='Auth_link__1fOlj' and @href='/register']")
-    BUTTON_FINAL_REGISTRATE = (By.XPATH, "//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']")
-    BUTTON_CONSTRUCTOR = (By.XPATH, "//a[@class='AppHeader_header__link__3D_hX' and @href='/']")
-    BUTTON_EXIT = (By.XPATH, "//button[@type='button' and @class='Account_button__14Yp3 text text_type_main-medium text_color_inactive' and text()='Выход']")
+    BUTTON_REGISTRATE = (By.XPATH, "//*[contains(@href,'/register')]")
+    BUTTON_FINAL_REGISTRATE = (By.XPATH, "//button[text()='Зарегистрироваться']")
+    BUTTON_CONSTRUCTOR = (By.XPATH, "//p[text()='Конструктор']")
+    BUTTON_EXIT = (By.XPATH, "//button[text()='Выход']")
 
     SAUCE_UNFOCUSED = (By.XPATH, "//span[text()='Соусы']//parent::div[@class='tab_tab__1SPyG  pt-4 pr-10 pb-4 pl-10 noselect']")
     SAUCE_IN_FOCUS = (By.XPATH, "//span[text()='Соусы']//parent::div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']")
@@ -19,7 +19,7 @@ class BurgerLocators:
     BREAD_IN_FOCUS = (By.XPATH, "//span[text()='Булки']//parent::div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']")
 
     INPUT_NAME = (By.XPATH, "//label[text() = 'Имя']/../input")
-    INPUT_EMAIL = (By.XPATH, "//label[text() = 'Email']/../input") #"//label[text() = 'Имя']/following-sibling::input"
+    INPUT_EMAIL = (By.XPATH, "//label[text() = 'Email']/../input")
     INPUT_PASSWORD = (By.XPATH, "//label[text() = 'Пароль']/../input")
 
     TITLE_ENTER = (By.XPATH, "//h2[text()='Вход']")
